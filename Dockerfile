@@ -23,4 +23,4 @@ RUN npm install --production
 COPY . .
 RUN echo "-- CERT --"
 RUN cat /opt/app/server.cert
-CMD sh /boot.sh && pm2-runtime websocket-broadcast -- --noid -p 443 --cert /opt/app/server.cert --key /opt/app/server.key
+CMD sh /boot.sh && pm2-runtime websocket-broadcast -- --noid --cert /opt/app/server.cert --key /opt/app/server.key
