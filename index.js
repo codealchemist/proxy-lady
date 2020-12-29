@@ -7,4 +7,5 @@ const proxy = new Proxy()
 proxy.create().listen(port)
 
 const ws = new WebSocketClient()
-ws.connect('wss://proxy-lady.openode.io:443')
+// ws.connect('wss://proxy-lady.openode.io:443')
+ws.connect('wss://proxy-lady.herokuapp.com:443')
