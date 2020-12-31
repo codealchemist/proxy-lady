@@ -1,0 +1,17 @@
+{
+  "name": "proxy-lady",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy-heroku": "git push heroku master"
+  },
+  "author": "Alberto Miranda",
+  "license": "ISC",
+  "dependencies": {
+    "simple-peer": "^9.9.3",
+    "wrtc": "^0.4.6",
+    "ws": "^7.4.1"
+  }
+}
