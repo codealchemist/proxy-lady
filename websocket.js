@@ -1,12 +1,13 @@
 const WebSocket = require('ws')
 
 class WebSocketClient {
-  constructor() {
+  constructor(from = 'server') {
     this.debug = true
     this.isConnected = false
     this.retries = 0
     this.maxRetries = 10
     this.queue = []
+    this.from = from
   }
 
   connect(serverUrl) {
@@ -24,6 +25,7 @@ class WebSocketClient {
   
     this.ws.onmessage = (e) => {
       const message = JSON.parse(e.data)
+      if (message.from === this.from) return
       this.log('WS MESSAGE:', message)
       if (message.type === 'disconnect') return
       if (typeof this.onMessageCallback === 'function') {
@@ -68,7 +70,10 @@ class WebSocketClient {
       return
     }
 
-    this.ws.send(JSON.stringify(message))
+    this.ws.send(JSON.stringify({
+      ...message,
+      from: 'server'
+    }))
     return this
   }
 

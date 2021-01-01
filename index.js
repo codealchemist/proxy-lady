@@ -5,7 +5,8 @@ const Peer = require('./webrtc')
 const port = process.env.PORT || 8080
 const proxy = new Proxy()
 const peer = new Peer()
-proxy.listen(port, '192.168.1.17')
+// proxy.listen(port, '192.168.1.17')
+proxy.listen(port, 'localhost')
 
 //------------------------------------------------
 // Connect to remote device.
